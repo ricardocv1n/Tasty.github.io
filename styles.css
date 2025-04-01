@@ -1,0 +1,253 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    padding-top: 60px;
+}
+
+header {
+    background-color: #FF6347;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+header .logo h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Estilos del hero */
+.hero {
+    background-color: #FF6347;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    margin-top: 80px; /* Para que no quede detrás del header */
+    border-radius: 0 0 40% 40%;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+}
+
+/* Estilo para la lista de recetas */
+.featured-recipes h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.recipes-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.recipe-card {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.card-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.card-info button {
+    background-color: #FF6347;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.card-info button:hover {
+    background-color: #ff4500;
+}
+
+.recipe-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Estilo para el botón del Libro de Cocina */
+.cookbook-btn {
+    display: flex;
+    flex-direction: column; /* Coloca el ícono y el texto uno debajo del otro */
+    align-items: center; /* Centra los elementos */
+    justify-content: center; /* Centra los elementos */
+    background-color: transparent; /* Fondo transparente */
+    border: none;
+    cursor: pointer;
+    text-decoration: none; /* Quita el subrayado */
+    transition: transform 0.3s ease; /* Añadir transición para el hover */
+}
+
+.cookbook-btn i {
+    font-size: 3rem; /* Tamaño del ícono */
+    color: #6a82fb; /* Color del ícono */
+    transition: transform 0.3s ease; /* Transición para la animación */
+}
+
+.cookbook-btn span {
+    font-size: 1.2rem; /* Tamaño del texto */
+    color: #333; /* Color del texto */
+    margin-top: 5px; /* Espacio entre el ícono y el texto */
+    opacity: 0; /* Comienza oculto */
+    transform: translateY(-10px); /* Comienza desplazado hacia arriba */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transiciones para el texto */
+}
+
+.cookbook-btn:hover i {
+    transform: rotateX(180deg); /* Rota el ícono en el hover */
+}
+
+.cookbook-btn:hover span {
+    opacity: 1; /* Muestra el texto al hacer hover */
+    transform: translateY(0); /* Devuelve el texto a su posición original */
+}
+
+/* Estilo para la página del Libro de Cocina */
+.hidden {
+    display: none;
+}
+
+#cookbook {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 100px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+#cookbook h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+#cookbook .book-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.book-container .recipes-list {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.recipe-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-info h3 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+.card-info button {
+    background-color: #FF6347;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.card-info button:hover {
+    background-color: #ff4500;
+}
+
+.recipe-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Estilos de video */
+.video-recipes {
+    margin-top: 40px;
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+}
+
+/* Estilo para los íconos en el menú de navegación */
+nav ul li a i {
+    margin-right: 5px; /* Espacio entre el ícono y el texto */
+    font-size: 1.2rem; /* Tamaño de los íconos */
+    vertical-align: middle; /* Alinear verticalmente */
+}

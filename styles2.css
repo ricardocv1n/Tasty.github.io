@@ -1,0 +1,161 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0eae3; /* Color de fondo similar al papel */
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #8b5a2b; /* Color marrón para el encabezado */
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+header .logo h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Estilos del contenedor del libro */
+.cookbook-container {
+    max-width: 800px; /* Ancho máximo del contenedor */
+    margin: 80px auto 40px; /* Centrado horizontal y margen superior */
+    padding: 20px;
+    background: #fff; /* Fondo blanco para el contenedor */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra */
+    position: relative; /* Posicionamiento relativo para efectos absolutos */
+    overflow: hidden; /* Oculta el contenido que sobresale */
+}
+
+.cookbook-container h2 {
+    text-align: center; /* Título centrado */
+    margin-bottom: 20px; /* Espacio debajo del título */
+}
+
+/* Estilo para el libro de recetas */
+.recipe-book {
+    position: relative; /* Posicionamiento para animaciones */
+    perspective: 1000px; /* Profundidad de perspectiva para 3D */
+}
+
+.recipe-page {
+    width: 100%; /* Ancho completo */
+    height: 400px; /* Altura del libro */
+    background-color: #fff; /* Fondo blanco para las páginas */
+    border: 1px solid #ddd; /* Borde ligero */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    display: flex;
+    flex-direction: column; /* Alinea el contenido verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    transform-style: preserve-3d; /* Mantiene el estilo 3D */
+    transition: transform 0.6s; /* Transición suave al girar */
+}
+
+.recipe-card {
+    background-color: #fefefe; /* Color de fondo de la tarjeta */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra de la tarjeta */
+    overflow: hidden; /* Oculta el contenido que sobresale */
+    transition: transform 0.3s ease; /* Transición al hacer hover */
+}
+
+.recipe-card img {
+    width: 100%; /* Imagen a ancho completo */
+    height: 200px; /* Altura fija para las imágenes */
+    object-fit: cover; /* Ajusta la imagen para cubrir el área */
+}
+
+.card-info {
+    padding: 15px; /* Espaciado interno */
+    text-align: center; /* Texto centrado */
+}
+
+.card-info h3 {
+    font-size: 1.5rem; /* Tamaño de la fuente del título */
+    margin-bottom: 10px; /* Margen inferior */
+}
+
+.card-info button {
+    background-color: #FF6347; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Relleno del botón */
+    cursor: pointer; /* Cursor de puntero */
+    border-radius: 5px; /* Bordes redondeados del botón */
+    transition: background-color 0.3s; /* Transición de color del fondo */
+}
+
+.card-info button:hover {
+    background-color: #ff4500; /* Color de fondo al hacer hover */
+}
+
+/* Botones de navegación */
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between; /* Espacio entre botones */
+    margin-top: 20px; /* Margen superior */
+}
+
+.nav-button {
+    background-color: #8b5a2b; /* Color marrón para los botones */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Relleno del botón */
+    cursor: pointer; /* Cursor de puntero */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s; /* Transición de color del fondo */
+}
+
+.nav-button:hover {
+    background-color: #70421d; /* Color más oscuro al hacer hover */
+}
+
+footer {
+    background-color: #8b5a2b; /* Color marrón para el pie de página */
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+/* Estilo para los íconos en el menú de navegación */
+nav ul li a i {
+    margin-right: 5px; /* Espacio entre el ícono y el texto */
+    font-size: 1.2rem; /* Tamaño de los íconos */
+    vertical-align: middle; /* Alinear verticalmente */
+}
