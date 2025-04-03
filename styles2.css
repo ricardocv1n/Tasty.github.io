@@ -7,13 +7,14 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f0eae3; /* Color de fondo similar al papel */
-    color: #333;
+    background-color: #F5E0C3;
+    color: #4B3F31;
     line-height: 1.6;
 }
 
+/* Encabezado */
 header {
-    background-color: #8b5a2b; /* Color marrón para el encabezado */
+    background-color: #8B4513;
     color: white;
     padding: 20px;
     display: flex;
@@ -29,6 +30,7 @@ header {
 header .logo h1 {
     font-size: 2rem;
     margin: 0;
+    color: #F5E0C3;
 }
 
 nav ul {
@@ -48,114 +50,154 @@ nav ul li a {
     letter-spacing: 1px;
 }
 
-/* Estilos del contenedor del libro */
+/* Contenedor de recetas */
 .cookbook-container {
-    max-width: 800px; /* Ancho máximo del contenedor */
-    margin: 80px auto 40px; /* Centrado horizontal y margen superior */
+    max-width: 800px;
+    margin: 120px auto;
     padding: 20px;
-    background: #fff; /* Fondo blanco para el contenedor */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra */
-    position: relative; /* Posicionamiento relativo para efectos absolutos */
-    overflow: hidden; /* Oculta el contenido que sobresale */
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    perspective: 1000px; /* Perspective para las animaciones 3D */
 }
 
-.cookbook-container h2 {
-    text-align: center; /* Título centrado */
-    margin-bottom: 20px; /* Espacio debajo del título */
+/* Cuadrícula para las tarjetas */
+#page {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    gap: 20px;
+    transition: opacity 0.5s ease-in-out;
+    transform-style: preserve-3d;
 }
 
-/* Estilo para el libro de recetas */
-.recipe-book {
-    position: relative; /* Posicionamiento para animaciones */
-    perspective: 1000px; /* Profundidad de perspectiva para 3D */
-}
-
-.recipe-page {
-    width: 100%; /* Ancho completo */
-    height: 400px; /* Altura del libro */
-    background-color: #fff; /* Fondo blanco para las páginas */
-    border: 1px solid #ddd; /* Borde ligero */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra */
-    display: flex;
-    flex-direction: column; /* Alinea el contenido verticalmente */
-    align-items: center; /* Centra horizontalmente */
-    justify-content: center; /* Centra verticalmente */
-    transform-style: preserve-3d; /* Mantiene el estilo 3D */
-    transition: transform 0.6s; /* Transición suave al girar */
-}
-
+/* Animación para pasar la página como si fuera un libro */
 .recipe-card {
-    background-color: #fefefe; /* Color de fondo de la tarjeta */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra de la tarjeta */
-    overflow: hidden; /* Oculta el contenido que sobresale */
-    transition: transform 0.3s ease; /* Transición al hacer hover */
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.6s ease;
+    transform-style: preserve-3d; /* Mantiene la perspectiva al girar */
+    height: 100%;
 }
 
 .recipe-card img {
-    width: 100%; /* Imagen a ancho completo */
-    height: 200px; /* Altura fija para las imágenes */
-    object-fit: cover; /* Ajusta la imagen para cubrir el área */
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
 }
 
-.card-info {
-    padding: 15px; /* Espaciado interno */
-    text-align: center; /* Texto centrado */
+.recipe-card h4 {
+    text-align: center;
+    padding: 10px 0;
 }
 
-.card-info h3 {
-    font-size: 1.5rem; /* Tamaño de la fuente del título */
-    margin-bottom: 10px; /* Margen inferior */
+.recipe-card:hover {
+    transform: rotateY(10deg); /* Efecto de inclinación al pasar el ratón */
 }
 
-.card-info button {
-    background-color: #FF6347; /* Color de fondo del botón */
-    color: white; /* Color del texto del botón */
-    border: none; /* Sin borde */
-    padding: 10px 20px; /* Relleno del botón */
-    cursor: pointer; /* Cursor de puntero */
-    border-radius: 5px; /* Bordes redondeados del botón */
-    transition: background-color 0.3s; /* Transición de color del fondo */
+.recipe-card:hover img {
+    transform: scale(1.1);
 }
 
-.card-info button:hover {
-    background-color: #ff4500; /* Color de fondo al hacer hover */
+/* Animación de "pase de página" entre recetas */
+.page-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
 
-/* Botones de navegación */
+.page-enter {
+    transform: rotateY(90deg); /* La página entra desde la derecha */
+}
+
+.page-enter-active {
+    transform: rotateY(0deg); /* Página en su posición original */
+}
+
+.page-exit {
+    transform: rotateY(0deg); /* Página en su posición original */
+}
+
+.page-exit-active {
+    transform: rotateY(-90deg); /* La página se va hacia la izquierda */
+}
+
 .navigation-buttons {
     display: flex;
-    justify-content: space-between; /* Espacio entre botones */
-    margin-top: 20px; /* Margen superior */
+    justify-content: space-between;
+    margin-top: 20px;
 }
 
 .nav-button {
-    background-color: #8b5a2b; /* Color marrón para los botones */
-    color: white; /* Color del texto */
-    border: none; /* Sin borde */
-    padding: 10px 20px; /* Relleno del botón */
-    cursor: pointer; /* Cursor de puntero */
-    border-radius: 5px; /* Bordes redondeados */
-    transition: background-color 0.3s; /* Transición de color del fondo */
+    background-color: #8B4513;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
 .nav-button:hover {
-    background-color: #70421d; /* Color más oscuro al hacer hover */
+    background-color: #70421d;
 }
 
+/* Modal */
+#recipe-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    align-items: center;
+    justify-content: center;
+}
+
+#recipe-modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+#recipe-modal img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+#recipe-modal button {
+    background-color: #FF6F61;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#recipe-modal button:hover {
+    background-color: #E05F46;
+}
+
+/* Footer */
 footer {
-    background-color: #8b5a2b; /* Color marrón para el pie de página */
+    background-color: #8B4513;
     color: white;
     text-align: center;
     padding: 15px;
     margin-top: 20px;
-}
-
-/* Estilo para los íconos en el menú de navegación */
-nav ul li a i {
-    margin-right: 5px; /* Espacio entre el ícono y el texto */
-    font-size: 1.2rem; /* Tamaño de los íconos */
-    vertical-align: middle; /* Alinear verticalmente */
 }
