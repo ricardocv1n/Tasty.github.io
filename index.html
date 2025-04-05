@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tasty - Recetas fáciles</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="chat.css"> <!-- Estilos del asistente -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -51,11 +52,32 @@
         </section>
     </main>
 
+    <!-- Asistente Virtual -->
+    <div class="chat-container">
+        <div class="chat-header" onclick="toggleChat()">
+            <i class="fas fa-user-chef chat-avatar"></i>
+            <span>Chef Asistente</span>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="messages" id="messages"></div>
+            <div class="chat-input">
+                <input type="text" id="userInput" placeholder="Pregúntame sobre recetas..." onkeypress="handleKeyPress(event)">
+                <button onclick="sendMessage()">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón flotante con icono de plato de comida -->
+    <button class="chat-btn" onclick="toggleChat()">
+        <i class="fas fa-utensils"></i>
+    </button>
+
     <!-- Footer -->
     <footer>
         <p>&copy; 2025 Tasty. Todos los derechos reservados.</p>
     </footer>
 
     <script src="app.js"></script>
-</body>
+    <script src="chat.js"></script> <!-- Script del asistente -->
+</body> 
 </html>
