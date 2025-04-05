@@ -1,3 +1,5 @@
+// chat.js - Corregido y optimizado
+
 document.addEventListener("DOMContentLoaded", () => {
     const chatBtn = document.querySelector(".chat-btn");
     const chatContainer = document.querySelector(".chat-container");
@@ -5,6 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const chatInput = document.getElementById("userInput");
     const sendBtn = document.querySelector(".chat-input button");
     
+    if (!chatBtn || !chatContainer || !chatBody || !chatInput || !sendBtn) {
+        console.error("Error: Elementos del chat no encontrados.");
+        return;
+    }
+
     chatBtn.addEventListener("click", toggleChat);
     chatContainer.querySelector(".chat-header").addEventListener("click", toggleChat);
     sendBtn.addEventListener("click", sendMessage);
@@ -18,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function sendMessage() {
         const userMessage = chatInput.value.trim();
-        if (userMessage === "") return;
+        if (!userMessage) return;
         
         appendMessage("user", userMessage);
         chatInput.value = "";
