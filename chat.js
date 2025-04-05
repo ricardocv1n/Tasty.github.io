@@ -1,27 +1,25 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const chatBtn = document.getElementById("chat-btn");
-    const chatContainer = document.getElementById("chat-container");
-    const chatBody = document.getElementById("chat-body");
-    const chatInput = document.getElementById("chat-input");
-    const sendBtn = document.getElementById("send-btn");
-    const closeBtn = document.getElementById("chat-close-btn");
-
+    const chatBtn = document.querySelector(".chat-btn");
+    const chatContainer = document.querySelector(".chat-container");
+    const chatBody = document.getElementById("messages");
+    const chatInput = document.getElementById("userInput");
+    const sendBtn = document.querySelector(".chat-input button");
+    
     chatBtn.addEventListener("click", toggleChat);
-    closeBtn.addEventListener("click", toggleChat);
+    chatContainer.querySelector(".chat-header").addEventListener("click", toggleChat);
+    sendBtn.addEventListener("click", sendMessage);
+    chatInput.addEventListener("keypress", (event) => {
+        if (event.key === "Enter") sendMessage();
+    });
 
     function toggleChat() {
         chatContainer.classList.toggle("active");
     }
 
-    chatInput.addEventListener("keypress", (event) => {
-        if (event.key === "Enter") sendMessage();
-    });
-    sendBtn.addEventListener("click", sendMessage);
-
     function sendMessage() {
         const userMessage = chatInput.value.trim();
         if (userMessage === "") return;
-
+        
         appendMessage("user", userMessage);
         chatInput.value = "";
 
